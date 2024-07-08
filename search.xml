@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Ros环境配置</title>
+      <link href="/2024/07/08/Ros%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2024/07/08/Ros%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="美化Hexo博客，主题安装配置"><a href="#美化Hexo博客，主题安装配置" class="headerlink" title="美化Hexo博客，主题安装配置"></a>美化Hexo博客，主题安装配置</h1><p>这期教程演示将使用一款基于hexo-theme-butterfly修改的主題-安知鱼，安知鱼是一个简洁、美丽的静态hexo主题</p><p>项目地址：<a href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu">https://github.com/anzhiyu-c/hexo-theme-anzhiyu</a><br>官方文档：<a href="https://docs.anheyu.com/initall.html">https://docs.anheyu.com/initall.html</a></p><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><h3 id="1-1-Git-安裝"><a href="#1-1-Git-安裝" class="headerlink" title="1.1. Git 安裝"></a>1.1. Git 安裝</h3><p>在博客根目录里安装最新版主题<br>git clone -b main <a href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git">https://github.com/anzhiyu-c/hexo-theme-anzhiyu.git</a> themes&#x2F;anzhiyu<br>第一次使用需要安装 pug 以及 stylus 的渲染器<br>npm install hexo-renderer-pug hexo-renderer-stylus –save</p><h3 id="1-2-应用主题"><a href="#1-2-应用主题" class="headerlink" title="1.2. 应用主题"></a>1.2. 应用主题</h3><p>修改 hexo 配置文件_config.yml，把主题改为anzhiyu<br>theme: anzhiyu</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 原创 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安装主题后发表的第一篇测试文章</title>
       <link href="/2024/07/08/%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98%E5%90%8E%E5%8F%91%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
       <url>/2024/07/08/%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98%E5%90%8E%E5%8F%91%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
@@ -54,7 +73,7 @@
     
     
     <entry>
-      <title>Hello World</title>
+      <title>你好，世界！</title>
       <link href="/2024/07/04/hello-world/"/>
       <url>/2024/07/04/hello-world/</url>
       
