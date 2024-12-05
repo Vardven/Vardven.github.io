@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="/undefined/hello-world/"/>
-      <url>/undefined/hello-world/</url>
+      <title>ROS和ROS2的区别</title>
+      <link href="/undefined/ROS%E5%92%8CROS2%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+      <url>/undefined/ROS%E5%92%8CROS2%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="ROS和ROS2的区别"><a href="#ROS和ROS2的区别" class="headerlink" title="ROS和ROS2的区别"></a>ROS和ROS2的区别</h1><p>ROS (Robot Operating System) 和 ROS 2 在构建功能包时有一些重要的区别，主要体现在构建系统、依赖管理和工具链等方面。以下是这两者的主要差异：</p><h2 id="1-构建系统的变化"><a href="#1-构建系统的变化" class="headerlink" title="1. 构建系统的变化"></a>1. 构建系统的变化</h2><p>ROS 1：<br>构建工具：ROS 1 使用 catkin 作为默认的构建工具。</p><p>构建命令：通常使用 catkin_make 或 catkin build 来构建工作空间。</p><p>catkin_make 是一个脚本，它结合了 CMake 和 Python，适用于相对简单的 ROS 1 包。<br>catkin build 是 catkin_tools 工具的功能，提供了更强的并行构建支持和更好的工作空间管理。</p><p>ROS 2：<br>构建工具：ROS 2 使用 colcon 作为默认的构建工具。</p><p>构建命令：使用 colcon build 来构建 ROS 2 工作空间。</p><p>colcon 是 ROS 2 的主要构建工具，它支持更复杂的工作空间管理、并行构建和更好的扩展性。它同时支持 ament_cmake 和 ament_python 等构建类型。</p><h2 id="2-包的结构和构建类型"><a href="#2-包的结构和构建类型" class="headerlink" title="2. 包的结构和构建类型"></a>2. 包的结构和构建类型</h2><p>ROS 1 (catkin)：<br>构建类型：ROS 1 包的构建通常依赖于 CMakeLists.txt 文件，使用 catkin 工具进行构建。<br>包依赖声明：通过 package.xml 声明包的依赖关系，使用 catkin 进行依赖解析和管理。<br>ROS 2 (ament)：<br>构建类型：ROS 2 使用 ament 作为构建系统，支持更灵活的构建类型。常见的构建类型有：</p><p>ament_cmake：使用 CMake 进行构建，通常用于 C++ 包。<br>ament_python：用于 Python 包。<br>ament_lldb、ament_vscode 等其他工具类型也有所支持。<br>ROS 2 默认采用的是 ament_cmake 构建类型，但您可以为特定的语言或需求选择其他构建工具。</p><p>包依赖声明：ROS 2 同样使用 package.xml 文件声明包的依赖，但 ament 对依赖的管理更加严格，支持更多功能，如分离构建依赖和运行时依赖。</p><h2 id="3-依赖管理"><a href="#3-依赖管理" class="headerlink" title="3. 依赖管理"></a>3. 依赖管理</h2><p>ROS 1 (catkin)：<br>catkin 在 ROS 1 中管理的依赖关系相对简单，构建过程中会将所有包一起构建，但有时可能出现依赖冲突问题，特别是在大型项目中。<br>ROS 2 (ament)：<br>ROS 2 引入了更加细致的依赖管理。ament 在构建时根据包的构建类型来管理依赖，并且支持严格区分构建时依赖和运行时依赖。</p><p>通过 ament 构建，包的依赖关系和编译选项得到了更加清晰的分离，便于管理大型项目。</p><h2 id="4-命名空间和文件结构"><a href="#4-命名空间和文件结构" class="headerlink" title="4. 命名空间和文件结构"></a>4. 命名空间和文件结构</h2><p>ROS 1：<br>ROS 1 的工作空间通常使用 catkin_make 生成的 build 和 devel 目录进行管理。devel 目录用于存放编译的包文件、设置脚本等。<br>ROS 2：<br>ROS 2 使用 colcon 构建工具时，工作空间中的文件结构有所不同，生成的文件目录为 build、install 和 log。install 目录用于存放安装后的文件，包含所有包的可执行文件、库和配置文件等，build 用于存放构建过程中的临时文件。</p><h2 id="5-并行构建和优化"><a href="#5-并行构建和优化" class="headerlink" title="5. 并行构建和优化"></a>5. 并行构建和优化</h2><p>ROS 1：<br>catkin_make 支持并行编译，但它的并行化程度和灵活性相对较低，尤其是在大型工作区时。<br>ROS 2：<br>colcon 对并行构建进行了优化，它支持高度的并行编译，并且能够根据包之间的依赖关系动态地调整构建顺序。这样可以显著提高构建速度，尤其是在包含多个包的大型工作区中。</p><h2 id="6-支持的语言和工具"><a href="#6-支持的语言和工具" class="headerlink" title="6. 支持的语言和工具"></a>6. 支持的语言和工具</h2><p>ROS 1：<br>主要支持 C++ 和 Python，其他语言的支持较少。<br>ROS 2：<br>ROS 2 对多语言的支持更加完善。除了 C++ 和 Python，ROS 2 还在逐步增加对其他语言（如 Rust）的支持。此外，ROS 2 提供了更多工具，例如支持与 ament 配合使用的 ament_tools 和更强大的命令行工具。</p><table><thead><tr><th>特性</th><th>ROS 1 (catkin)</th><th>ROS 2 (ament&#x2F;colcon)</th></tr></thead><tbody><tr><td><strong>构建工具</strong></td><td><code>catkin_make</code>、<code>catkin build</code></td><td><code>colcon build</code></td></tr><tr><td><strong>包结构</strong></td><td><code>CMakeLists.txt</code>、<code>package.xml</code></td><td><code>CMakeLists.txt</code>、<code>package.xml</code></td></tr><tr><td><strong>构建类型</strong></td><td><code>catkin</code></td><td><code>ament_cmake</code>、<code>ament_python</code>、其他</td></tr><tr><td><strong>依赖管理</strong></td><td>相对简单，依赖解析可能不够严格</td><td>更细致的依赖管理，支持区分构建时和运行时依赖</td></tr><tr><td><strong>并行构建</strong></td><td>支持并行构建，但功能较为简单</td><td>高度优化的并行构建，支持动态依赖排序</td></tr><tr><td><strong>工作空间结构</strong></td><td><code>build</code>、<code>devel</code></td><td><code>build</code>、<code>install</code>、<code>log</code></td></tr><tr><td><strong>支持语言</strong></td><td>C++、Python</td><td>C++、Python、Rust等多语言支持</td></tr></tbody></table><p>从 ROS 1 到 ROS 2 的迁移不仅仅是构建工具的变化，还涉及了对系统架构、性能和可扩展性的优化。ROS 2 的构建系统更加灵活、强大，适应现代机器人的需求。</p>]]></content>
       
       
+      <categories>
+          
+          <category> ROS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 原创 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -28,31 +40,6 @@
         <tags>
             
             <tag> 搬运 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ROS和ROS2的区别</title>
-      <link href="/undefined/ROS%E5%92%8CROS2%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-      <url>/undefined/ROS%E5%92%8CROS2%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-      
-        <content type="html"><![CDATA[<h1 id="ROS和ROS2的区别"><a href="#ROS和ROS2的区别" class="headerlink" title="ROS和ROS2的区别"></a>ROS和ROS2的区别</h1><p>ROS (Robot Operating System) 和 ROS 2 在构建功能包时有一些重要的区别，主要体现在构建系统、依赖管理和工具链等方面。以下是这两者的主要差异：</p><h2 id="1-构建系统的变化"><a href="#1-构建系统的变化" class="headerlink" title="1. 构建系统的变化"></a>1. 构建系统的变化</h2><p>ROS 1：<br>构建工具：ROS 1 使用 catkin 作为默认的构建工具。</p><p>构建命令：通常使用 catkin_make 或 catkin build 来构建工作空间。</p><p>catkin_make 是一个脚本，它结合了 CMake 和 Python，适用于相对简单的 ROS 1 包。<br>catkin build 是 catkin_tools 工具的功能，提供了更强的并行构建支持和更好的工作空间管理。</p><p>ROS 2：<br>构建工具：ROS 2 使用 colcon 作为默认的构建工具。</p><p>构建命令：使用 colcon build 来构建 ROS 2 工作空间。</p><p>colcon 是 ROS 2 的主要构建工具，它支持更复杂的工作空间管理、并行构建和更好的扩展性。它同时支持 ament_cmake 和 ament_python 等构建类型。</p><h2 id="2-包的结构和构建类型"><a href="#2-包的结构和构建类型" class="headerlink" title="2. 包的结构和构建类型"></a>2. 包的结构和构建类型</h2><p>ROS 1 (catkin)：<br>构建类型：ROS 1 包的构建通常依赖于 CMakeLists.txt 文件，使用 catkin 工具进行构建。<br>包依赖声明：通过 package.xml 声明包的依赖关系，使用 catkin 进行依赖解析和管理。<br>ROS 2 (ament)：<br>构建类型：ROS 2 使用 ament 作为构建系统，支持更灵活的构建类型。常见的构建类型有：</p><p>ament_cmake：使用 CMake 进行构建，通常用于 C++ 包。<br>ament_python：用于 Python 包。<br>ament_lldb、ament_vscode 等其他工具类型也有所支持。<br>ROS 2 默认采用的是 ament_cmake 构建类型，但您可以为特定的语言或需求选择其他构建工具。</p><p>包依赖声明：ROS 2 同样使用 package.xml 文件声明包的依赖，但 ament 对依赖的管理更加严格，支持更多功能，如分离构建依赖和运行时依赖。</p><h2 id="3-依赖管理"><a href="#3-依赖管理" class="headerlink" title="3. 依赖管理"></a>3. 依赖管理</h2><p>ROS 1 (catkin)：<br>catkin 在 ROS 1 中管理的依赖关系相对简单，构建过程中会将所有包一起构建，但有时可能出现依赖冲突问题，特别是在大型项目中。<br>ROS 2 (ament)：<br>ROS 2 引入了更加细致的依赖管理。ament 在构建时根据包的构建类型来管理依赖，并且支持严格区分构建时依赖和运行时依赖。</p><p>通过 ament 构建，包的依赖关系和编译选项得到了更加清晰的分离，便于管理大型项目。</p><h2 id="4-命名空间和文件结构"><a href="#4-命名空间和文件结构" class="headerlink" title="4. 命名空间和文件结构"></a>4. 命名空间和文件结构</h2><p>ROS 1：<br>ROS 1 的工作空间通常使用 catkin_make 生成的 build 和 devel 目录进行管理。devel 目录用于存放编译的包文件、设置脚本等。<br>ROS 2：<br>ROS 2 使用 colcon 构建工具时，工作空间中的文件结构有所不同，生成的文件目录为 build、install 和 log。install 目录用于存放安装后的文件，包含所有包的可执行文件、库和配置文件等，build 用于存放构建过程中的临时文件。</p><h2 id="5-并行构建和优化"><a href="#5-并行构建和优化" class="headerlink" title="5. 并行构建和优化"></a>5. 并行构建和优化</h2><p>ROS 1：<br>catkin_make 支持并行编译，但它的并行化程度和灵活性相对较低，尤其是在大型工作区时。<br>ROS 2：<br>colcon 对并行构建进行了优化，它支持高度的并行编译，并且能够根据包之间的依赖关系动态地调整构建顺序。这样可以显著提高构建速度，尤其是在包含多个包的大型工作区中。</p><h2 id="6-支持的语言和工具"><a href="#6-支持的语言和工具" class="headerlink" title="6. 支持的语言和工具"></a>6. 支持的语言和工具</h2><p>ROS 1：<br>主要支持 C++ 和 Python，其他语言的支持较少。<br>ROS 2：<br>ROS 2 对多语言的支持更加完善。除了 C++ 和 Python，ROS 2 还在逐步增加对其他语言（如 Rust）的支持。此外，ROS 2 提供了更多工具，例如支持与 ament 配合使用的 ament_tools 和更强大的命令行工具。</p><table><thead><tr><th>特性</th><th>ROS 1 (catkin)</th><th>ROS 2 (ament&#x2F;colcon)</th></tr></thead><tbody><tr><td><strong>构建工具</strong></td><td><code>catkin_make</code>、<code>catkin build</code></td><td><code>colcon build</code></td></tr><tr><td><strong>包结构</strong></td><td><code>CMakeLists.txt</code>、<code>package.xml</code></td><td><code>CMakeLists.txt</code>、<code>package.xml</code></td></tr><tr><td><strong>构建类型</strong></td><td><code>catkin</code></td><td><code>ament_cmake</code>、<code>ament_python</code>、其他</td></tr><tr><td><strong>依赖管理</strong></td><td>相对简单，依赖解析可能不够严格</td><td>更细致的依赖管理，支持区分构建时和运行时依赖</td></tr><tr><td><strong>并行构建</strong></td><td>支持并行构建，但功能较为简单</td><td>高度优化的并行构建，支持动态依赖排序</td></tr><tr><td><strong>工作空间结构</strong></td><td><code>build</code>、<code>devel</code></td><td><code>build</code>、<code>install</code>、<code>log</code></td></tr><tr><td><strong>支持语言</strong></td><td>C++、Python</td><td>C++、Python、Rust等多语言支持</td></tr></tbody></table><p>从 ROS 1 到 ROS 2 的迁移不仅仅是构建工具的变化，还涉及了对系统架构、性能和可扩展性的优化。ROS 2 的构建系统更加灵活、强大，适应现代机器人的需求。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 测试 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 原创 </tag>
             
         </tags>
       
